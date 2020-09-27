@@ -110,30 +110,49 @@ const questions = () => {
             }
         },
         {
-            type: 'confirm',
-            name: 'confirmLicense',
-            message: 'Would you like to add a License Badge to the Project?',
-            default: true
-        },
-        {
             type: 'list',
             message: "Choose a license for your project.",
             choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
             name: 'license'
+        },
+        {
+            type: 'input',
+            name: 'gitName',
+            message: 'What is your Github userame? (Required)',
+            validate: gitInput => {
+                if (gitInput) {
+                    return true;
+                }
+                else {
+                    console.log('Please enter your Github userame!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'gitRepo',
+            message: 'Please insert a link to your Github. (Required)',
+            validate: gitInput => {
+                if (gitInput) {
+                    return true;
+                }
+                else {
+                    console.log('Please enter a link to your Github!');
+                    return false;
+                }
+            }
         }
     ]);
 };
 
 questions()
-.then(data => {
-    console.log(data);
-    return generateMarkdown(data)
-})
  .then(function(data){
+     console.log(data);
     fs.writeFile("README.md", generateMarkdown(data), function(err) {
         if (err) {
             throw err;
         };
-        console.log("New README file created with success!");
+        console.log("Congrats! Your new ReadMe File has been automatically generated. :D");
     });
 });

@@ -7,7 +7,7 @@ function generateMarkdown(data) {
   
   ## Description 
   
-  ${data.description}
+  ${data.pDescription}
   
   ## Table of contents
   
@@ -23,11 +23,11 @@ function generateMarkdown(data) {
   
   ## Installation
   
-          ${data.installation}
+          ${data.pInstallation}
   
   ## Usage
   
-  ${data.usage}
+  ${data.pUsage}
   
   ## Licence
   
@@ -39,12 +39,12 @@ function generateMarkdown(data) {
   
   ## Test
   
-  ${data.test}
+  ${data.pTest}
   
   
   ## Repository
   
-  - [Project Repo](${data.repo})
+  - [Project Repo](${data.gitRepo})
   
   ## GitHub
   `;
