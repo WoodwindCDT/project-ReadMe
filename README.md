@@ -13,7 +13,7 @@
   - [Usage](#Usage)
   - [License](#License)
   - [Test](#Test)
-  - [GitHub Info](#GitHub) 
+  - [More Info](#Questions) 
   
   
   ## Installation
