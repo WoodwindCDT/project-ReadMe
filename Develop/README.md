@@ -15,7 +15,7 @@
   - [License](#License)
   - [Credits](#Credits)
   - [Test](#Test)
-  - [GitHub Info](#GitHub) 
+  - [More](#Questions) 
   
   
   ## Installation
@@ -34,7 +34,7 @@
   
   > This is a test
   
-  ## Questions? Contact Me Here!
+  ## Questions
 
   Account: **WoodwindCDT**
 
