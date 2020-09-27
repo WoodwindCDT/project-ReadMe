@@ -1,19 +1,17 @@
 // Global Const/Var
-// Const fs required by node to enable writeFile
-const fs = require('fs');
 const inquirer = require('inquirer');
+const fs = require('fs');
+const util = require('util');
+
+// Specifies to require constant module.export to (local Path)=
+const generateMarkdown = require('./utils/generateMarkdown.js');
 
 // Array of Initial Project questions for user
 const questions = () => {
-    console.log(`
-    =================
-    Project Time!
-    =================
-    `);
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'p-title',
+            name: 'pTitle',
             message: 'What is your Projects Name? (Required)',
             validate: titleInput => {
                 if (titleInput) {
@@ -27,7 +25,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'p-description',
+            name: 'pDescription',
             message: 'Enter a Project Description? (Required)',
             validate: descInput => {
                 if (descInput) {
@@ -47,7 +45,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'p-installation',
+            name: 'pInstallation',
             message: 'Type how to install the Project.',
             when: ({ confirmInstall }) => {
                 if (confirmInstall) {
@@ -65,7 +63,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'p-usage',
+            name: 'pUsage',
             message: 'Type about the Project usage.',
             when: ({ confirmUsage }) => {
                 if (confirmUsage) {
@@ -83,7 +81,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'p-contribution',
+            name: 'pContribution',
             message: 'Type about the contribution guidelines for the Project.',
             when: ({ confirmContribution }) => {
                 if (confirmContribution) {
@@ -101,7 +99,7 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'p-test',
+            name: 'pTest',
             message: 'Type about the testing instructions for the Project.',
             when: ({ confirmTest }) => {
                 if (confirmTest) {
@@ -114,27 +112,28 @@ const questions = () => {
         {
             type: 'confirm',
             name: 'confirmLicense',
-            message: 'Would you like to add a License to the Project?',
+            message: 'Would you like to add a License Badge to the Project?',
             default: true
         },
         {
-            type: 'checkbox',
-            name: 'languages',
-            message: 'Choose a License.',
-            choices: ['MIT', 'Apache', 'GNU', 'ES6', 'Unlicense ']
+            type: 'list',
+            message: "Choose a license for your project.",
+            choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
+            name: 'license'
         }
     ]);
 };
 
-// Function to write README file
-function writeToFile(fileName, data) {
-
-}
-
-// Function to initialize program
-function init() {
-
-}
-
-// Function call to initialize program
-init();
+questions()
+.then(data => {
+    console.log(data);
+    return generateMarkdown(data)
+})
+ .then(function(data){
+    fs.writeFile("README.md", generateMarkdown(data), function(err) {
+        if (err) {
+            throw err;
+        };
+        console.log("New README file created with success!");
+    });
+});
