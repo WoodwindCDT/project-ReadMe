@@ -13,7 +13,7 @@
   - [Usage](#Usage)
   - [License](#License)
   - [Test](#Test)
-  - [More Info](#Questions) 
+  - [More Info](#Questions?) 
   
   
   ## Installation
@@ -33,7 +33,7 @@ Example:
   
   ![gif](https://user-images.githubusercontent.com/67067481/94357156-ec374080-005b-11eb-8e9e-c23e9d3682fb.gif)
   
-  ## Questions? Contact Me Here!
+  ## Questions?
 
   Account: **WoodwindCDT**
 
