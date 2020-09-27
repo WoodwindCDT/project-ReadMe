@@ -3,7 +3,7 @@ function generateMarkdown(data) {
   return `
   # **${data.pTitle}**
 
-  ![GitHub](https://img.shields.io/github/license/${data.gitName}/${data.pTitle})
+  ![License](https://img.shields.io/badge/License-${data.license}-purple.svg)
   
   ## Description 
   
@@ -39,6 +39,8 @@ function generateMarkdown(data) {
   ## Questions? Contact Me Here!
 
   Account: **${data.gitName}**
+
+  Email: ${data.email}
 
   More: [Checkout my Work](${data.gitAcc})
 

@@ -68,7 +68,7 @@ const questions = () => {
         {
             type: 'list',
             message: "Choose a license for your project.",
-            choices: ['GNU AGPLv3', 'GNU GPLv3', 'Apache License 2.0', 'MIT License', 'The Unlicense'],
+            choices: ['AGPLv3', 'GPLv3', 'Apache_2.0', 'MIT', 'Unlicense'],
             name: 'license'
         },
         {
@@ -88,7 +88,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'gitAcc',
-            message: 'Please insert a link to your Github. (Suggested)',
+            message: 'Please insert a link to your Github Account. (Suggested)',
         },
         {
             type: 'input',
