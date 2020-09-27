@@ -1,4 +1,4 @@
-// function to generate markdown for README
+// Function to generate markdown for README
 function generateMarkdown(data) {
   return `
   # **${data.pTitle}**
@@ -14,40 +14,39 @@ function generateMarkdown(data) {
   - [Description](#Description)
   - [Installation](#Installation)
   - [Usage](#Usage)
-  - [Licence](#Licence)
-  - [Contributors](#Contributors)
+  - [License](#License)
+  - [Credits](#Credits)
   - [Test](#Test)
-  - [Repository Link](#Repository)
   - [GitHub Info](#GitHub) 
   
   
   ## Installation
   
-          ${data.pInstallation}
+  > ${data.pInstallation}
   
   ## Usage
   
-  ${data.pUsage}
+  > ${data.pUsage}
+
+  ## Credits
   
-  ## Licence
-  
-  ${data.licence}
-  
-  ## Contributors
-  
-  ${data.contributing}
+  > ${data.pContribution}
   
   ## Test
   
-  ${data.pTest}
+  > ${data.pTest}
   
-  
-  ## Repository
-  
-  - [Project Repo](${data.gitRepo})
-  
-  ## GitHub
+  ## Github
+
+  Account: **${data.gitName}**
+
+  More: [Checkout my Work Here!](${data.gitAcc})
+
+  ## Licence
+  This Project is licensed via ${data.license}
+
   `;
 }
 
+// Module Export for data
 module.exports = generateMarkdown;

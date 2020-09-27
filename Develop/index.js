@@ -38,76 +38,32 @@ const questions = () => {
             }
         },
         {
-            type: 'confirm',
-            name: 'confirmInstall',
-            message: 'Would you like to inform the user how to install the Project?',
-            default: true
-        },
-        {
             type: 'input',
             name: 'pInstallation',
-            message: 'Type how to install the Project.',
-            when: ({ confirmInstall }) => {
-                if (confirmInstall) {
-                  return true;
-                } else {
-                  return false;
-                }
-            }
-        },
-        {
-            type: 'confirm',
-            name: 'confirmUsage',
-            message: 'Would you like to inform the user about the usage for the Project?',
-            default: true
+            message: 'Type how to install the Project. (Suggested)',
         },
         {
             type: 'input',
             name: 'pUsage',
-            message: 'Type about the Project usage.',
-            when: ({ confirmUsage }) => {
-                if (confirmUsage) {
-                  return true;
-                } else {
-                  return false;
-                }
-            }
-        },
-        {
-            type: 'confirm',
-            name: 'confirmContribution',
-            message: 'Would you like to inform the user about the contribution guidelines for the Project?',
-            default: true
+            message: 'Type about the Project usage. (Suggested)',
         },
         {
             type: 'input',
             name: 'pContribution',
-            message: 'Type about the contribution guidelines for the Project.',
-            when: ({ confirmContribution }) => {
-                if (confirmContribution) {
+            message: 'Please list all Contributors. (Required)',
+            validate: contInput => {
+                if (contInput) {
                   return true;
                 } else {
+                console.log('Please list all contributors.');
                   return false;
                 }
             }
-        },
-        {
-            type: 'confirm',
-            name: 'confirmTest',
-            message: 'Would you like to inform the user about the testing instructions for the Project?',
-            default: true
         },
         {
             type: 'input',
             name: 'pTest',
-            message: 'Type about the testing instructions for the Project.',
-            when: ({ confirmTest }) => {
-                if (confirmTest) {
-                  return true;
-                } else {
-                  return false;
-                }
-            }
+            message: 'Type about the testing instructions for the Project. (Suggested)',
         },
         {
             type: 'list',
@@ -131,24 +87,21 @@ const questions = () => {
         },
         {
             type: 'input',
-            name: 'gitRepo',
-            message: 'Please insert a link to your Github. (Required)',
-            validate: gitInput => {
-                if (gitInput) {
-                    return true;
-                }
-                else {
-                    console.log('Please enter a link to your Github!');
-                    return false;
-                }
-            }
+            name: 'gitAcc',
+            message: 'Please insert a link to your Github. (Suggested)',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your Email. (Suggested)',
         }
     ]);
 };
 
+// Function Question .then turning into data 
 questions()
  .then(function(data){
-     console.log(data);
+    console.log("Calibrating flux capacitors...");
     fs.writeFile("README.md", generateMarkdown(data), function(err) {
         if (err) {
             throw err;
