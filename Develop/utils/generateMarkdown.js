@@ -2,8 +2,8 @@
 function generateMarkdown(data) {
   return `
   # **${data.pTitle}**
-  
-  ${data.badge}
+
+  ![GitHub](https://img.shields.io/github/license/${data.gitName}/${data.pTitle})
   
   ## Description 
   
@@ -36,11 +36,11 @@ function generateMarkdown(data) {
   
   > ${data.pTest}
   
-  ## Github
+  ## Questions? Contact Me Here!
 
   Account: **${data.gitName}**
 
-  More: [Checkout my Work Here!](${data.gitAcc})
+  More: [Checkout my Work](${data.gitAcc})
 
   ## Licence
   This Project is licensed via ${data.license}
