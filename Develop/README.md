@@ -5,7 +5,7 @@
   
   ## Description 
   
-  This is an example
+  This is a project description
   
   ## Table of contents
   
@@ -20,27 +20,27 @@
   
   ## Installation
   
-  > This is how you install
+  > This is how you install the program
   
   ## Usage
   
-  > This is the usage
+  > The is about the project usage
 
   ## Credits
   
-  > Me, myself, and I
+  > Me, Myself, and I
   
   ## Test
   
-  > This is a test
+  > This is how you test the device
   
-  ## Questions
+  ## Questions? Contact Me Here!
 
   Account: **WoodwindCDT**
 
   Email: woodwind.turbeville@gmail.com
 
-  More: [Checkout my Work](woodwind.turbeville)
+  More: [Checkout my Work](https://github.com/WoodwindCDT)
 
   ## Licence
   This Project is licensed via MIT
